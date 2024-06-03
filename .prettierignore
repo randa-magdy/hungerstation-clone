@@ -1,0 +1,29 @@
+# Ignore artifacts and generated files.
+.expo/
+node_modules/
+build/
+config/
+coverage/
+.husky/ 
+
+# Ignore all __tests__ directories
+**/__tests__/
+
+# Ignore package lock files
+package-lock.json
+
+# Ignore configuration files
+.babelrc
+.eslintrc.json
+.prettierrc.json
+commitlint.config.js
+*.config.js
+tsconfig.json
+.vscode
+app.json
+package.json
+
+# Ignore environment files
+.env
+.env.local
+.env.*.local
