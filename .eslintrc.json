@@ -13,11 +13,12 @@
       "extends": [
         "plugin:@typescript-eslint/recommended"
         // "plugin:@typescript-eslint/recommended-requiring-type-checking"
-      ]
-      // "rules": {
+      ],
+      "rules": {
       //   "@typescript-eslint/consistent-type-assertions": "error",
       //   "@typescript-eslint/no-duplicate-type-constituents":"off"
-      // }
+        "@typescript-eslint/no-explicit-any":"off"
+      }
     }
   ],  
   "parser": "@babel/eslint-parser", // Babel parser for modern JavaScript features
