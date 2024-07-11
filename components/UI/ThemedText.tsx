@@ -1,11 +1,21 @@
-import { Text, type TextProps, StyleSheet } from 'react-native';
+import { StyleSheet, Text, type TextProps } from 'react-native';
 
+import { Colors } from '@/constants/Colors';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  type?:
+    | 'default'
+    | 'normal'
+    | 'title'
+    | 'defaultSemiBold'
+    | 'subtitle'
+    | 'link'
+    | 'big'
+    | 'medium'
+    | 'small';
 };
 
 export function ThemedText({
@@ -24,7 +34,11 @@ export function ThemedText({
         type === 'default' ? styles.default : undefined,
         type === 'title' ? styles.title : undefined,
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
+        type === 'normal' ? styles.normal : undefined,
+        type === 'big' ? styles.big : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
+        type === 'medium' ? styles.medium : undefined,
+        type === 'small' ? styles.small : undefined,
         type === 'link' ? styles.link : undefined,
         style,
       ]}
@@ -35,25 +49,37 @@ export function ThemedText({
 
 const styles = StyleSheet.create({
   default: {
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 14,
   },
   defaultSemiBold: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  big: {
+    fontSize: 18,
+  },
+  normal: {
     fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
+  },
+  medium: {
+    fontSize: 13,
+  },
+  small: {
+    fontSize: 12,
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
-  },
-  subtitle: {
     fontSize: 20,
     fontWeight: 'bold',
+    marginBottom: 20,
+    color: Colors.light.darkBrownText,
+  },
+  subtitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: Colors.light.darkBrownText,
   },
   link: {
-    lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',
   },

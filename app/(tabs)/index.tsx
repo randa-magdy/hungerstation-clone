@@ -1,20 +1,23 @@
-import { SafeAreaView, Text, View } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import ParallaxScrollView from '@/components/UI/ParallaxScrollView';
+import { Colors } from '@/constants/Colors';
+import Businesses from '@/features/HomeScreen/Businesses';
+import DailyOffers from '@/features/HomeScreen/DailyOffers';
+import Featured from '@/features/HomeScreen/Featured';
+import HeaderBanner from '@/features/HomeScreen/HeaderBanner';
+import SelectLocation from '@/features/HomeScreen/HeaderBanner/SelectLocation';
 
 export default function HomeScreen() {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView>
-        <View>
-          <Text>Hiiiii</Text>
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <ParallaxScrollView
+      headerBackgroundColor={{
+        light: Colors.light.lightYellowBackground,
+        dark: Colors.dark.background,
+      }}
+      headerBanner={<SelectLocation />}>
+      <HeaderBanner />
+      <Businesses />
+      <DailyOffers />
+      <Featured />
+    </ParallaxScrollView>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex:1
-//   },
-// });
