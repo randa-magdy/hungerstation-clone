@@ -5,6 +5,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 
+import ManagedModal from '@/components/UI/Modal/ManagedModal';
+import { UIProvider } from '@/contexts/ui.context';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { StatusBar } from 'react-native';
 
@@ -31,10 +33,14 @@ export default function RootLayout() {
     <>
       <StatusBar barStyle="dark-content" />
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
+        <UIProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+            <Stack.Screen name="(screens)" options={{ headerShown: false }} />
+          </Stack>
+          <ManagedModal />
+        </UIProvider>
       </ThemeProvider>
     </>
   );

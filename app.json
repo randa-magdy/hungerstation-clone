@@ -15,13 +15,18 @@
     "jsEngine": "hermes",
     "ios": {
       "supportsTablet": true,
-      "jsEngine": "jsc"
+      "jsEngine": "jsc",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app needs access to your location to show your position on the map."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": ["ACCESS_FINE_LOCATION"],
+      "package": "com.randa.hungerstation"
     },
     "web": {
       "bundler": "metro",
@@ -29,7 +34,8 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router","expo-location"
+        
     ],
     "experiments": {
       "typedRoutes": true

@@ -1,3 +1,4 @@
+import RedirectToMapScreen from '@/components/Reusable/RedirectToMapScreen';
 import { Colors } from '@/constants/Colors';
 import { Entypo, MaterialIcons, Octicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
@@ -9,9 +10,10 @@ export default function SelectLocation({ scrollOffset }: { scrollOffset?: Shared
       opacity: interpolate(scrollOffset?.value || 0, [0, 90, 120, 150], [0, 0.6, 0.9, 1]),
     };
   });
+
   return (
     <View style={styles.container}>
-      <View style={styles.locationContainer}>
+      <RedirectToMapScreen style={styles.locationContainer}>
         <View style={styles.iconContainer}>
           <MaterialIcons name="location-pin" size={25} color="#0fa051" />
         </View>
@@ -22,7 +24,7 @@ export default function SelectLocation({ scrollOffset }: { scrollOffset?: Shared
             <Entypo name="chevron-small-down" size={24} color={Colors.light.darkBrownText} />
           </View>
         </View>
-      </View>
+      </RedirectToMapScreen>
       <Animated.View style={searchAnimatedStyle}>
         <Octicons name="search" size={25} color={Colors.light.brownText} />
       </Animated.View>
@@ -36,8 +38,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 30,
-    paddingBottom: 20,
+    marginTop: 25,
+    marginBottom: 10,
     paddingHorizontal: 15,
   },
   locationContainer: {

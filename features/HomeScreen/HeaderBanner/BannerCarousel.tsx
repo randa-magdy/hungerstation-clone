@@ -1,4 +1,5 @@
 import Carousel from '@/components/UI/Carousel';
+import { Colors } from '@/constants/Colors';
 import { ReactElement } from 'react';
 import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native';
 
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: Colors.light.lightYellowBackground,
   },
   image: {
     width: '100%',
